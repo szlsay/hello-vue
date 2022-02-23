@@ -5,13 +5,11 @@
     </nav-bar>
     <home-swiper :banners="banners"/>
     <recommend-view :recommends="recommends" />
-    <!-- <recommend-view :recommends="recommends"> -->
   </div>
 </template>
 <script>
 import NavBar from "components/common/navbar/NavBar";
 import HomeSwiper from './childComps/HomeSwiper'
-// import RecommendView from './childComps/RecommendView'
 import {getHomeMultidata} from "network/home"
 import RecommendView from './childComps/RecommendView.vue';
 export default {
@@ -19,8 +17,6 @@ export default {
   components: {
     NavBar,
     HomeSwiper,
-    // RecommendView
-  
     RecommendView},
   data() {
     return {

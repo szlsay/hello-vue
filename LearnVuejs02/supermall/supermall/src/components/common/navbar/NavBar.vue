@@ -1,5 +1,5 @@
 <template>
-  <div id="nav-bar">
+  <div class="nav-bar">
     <div class="left">
       <slot name="left"></slot>
     </div>

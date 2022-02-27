@@ -1,46 +1,56 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-29 10:33:46
+ * @LastEditTime: 2021-04-02 15:22:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \supermall\src\router\index.js
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const Home = () => import('../views/home/home')
-const Category = () => import('../views/category/category')
-const Cart = () => import('../views/cart/cart')
-const Profile = () => import('../views/profile/profile')
-const Detail = () => import('../views/detail/Detail')
 
-// 1.安装插件
+
+
 Vue.use(VueRouter)
 
-// 2.创建router
 const routes = [
   {
-    path: '',
-    redirect: '/home'
+    path: '/',
+    redirect:'/home',
   },
   {
     path: '/home',
-    component: Home
+    name: 'Home',
+    component: ()=>import('../views/home/Home.vue')
   },
   {
     path: '/category',
-    component: Category
+    name: 'Category',
+    component: ()=>import('../views/category/Category.vue')
   },
   {
     path: '/cart',
-    component: Cart
+    name: 'Cart',
+    component: ()=>import('../views/cart/Cart.vue')
   },
   {
     path: '/profile',
-    component: Profile
+    name: 'Profile',
+    component: ()=>import('../views/profile/Profile.vue')
   },
   {
     path: '/detail/:iid',
-    component: Detail
+    name: 'Detail',
+    component: () => import('../views/detail/Detail.vue')
   }
+  
 ]
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-})
 
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
 
 export default router

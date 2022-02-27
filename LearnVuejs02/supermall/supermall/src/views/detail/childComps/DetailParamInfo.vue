@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-04-06 13:24:46
+ * @LastEditTime: 2021-04-06 13:37:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \supermall\src\views\detail\childComps\DetailParamInfo.vue
+-->
 <template>
   <div class="param-info" v-if="Object.keys(paramInfo).length !== 0">
     <table v-for="(table, index) in paramInfo.sizes"
@@ -7,7 +15,7 @@
       </tr>
     </table>
     <table class="info-param">
-      <tr v-for="(info, index) in paramInfo.infos" :key="index">
+      <tr v-for="(info,index) in paramInfo.infos" :key="index">
         <td class="info-param-key">{{info.key}}</td>
         <td class="param-value">{{info.value}}</td>
       </tr>

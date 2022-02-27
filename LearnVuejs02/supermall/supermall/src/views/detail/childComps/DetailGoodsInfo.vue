@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-04-06 10:28:35
+ * @LastEditTime: 2021-04-07 10:04:37
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \supermall\src\views\detail\childComps\DetailGoodsInfo.vue
+-->
 <template>
   <div v-if="Object.keys(detailInfo).length !== 0" class="goods-info">
     <div class="info-desc clear-fix">
@@ -8,7 +16,7 @@
     </div>
     <div class="info-key">{{detailInfo.detailImage[0].key}}</div>
     <div class="info-list">
-      <img v-for="(item, index) in detailInfo.detailImage[0].list" :key="index" :src="item" @load="imgLoad" alt="">
+      <img v-for="(item, index) in detailInfo.detailImage[0].list" :key="index" :src="item" alt="" @load='imageLoad'>
     </div>
   </div>
 </template>
@@ -28,19 +36,10 @@
       }
     },
     methods: {
-	    imgLoad() {
-        // 判断, 所有的图片都加载完了, 那么进行一次回调就可以了.
-        if (++this.counter === this.imagesLength) {
-          this.$emit('imageLoad');
-        }
-	    }
+      imageLoad(){
+        this.$emit('detailImageLoad')
+      }
     },
-    watch: {
-	    detailInfo() {
-	      // 获取图片的个数
-	    	this.imagesLength = this.detailInfo.detailImage[0].list.length
-	    }
-    }
 	}
 </script>
 

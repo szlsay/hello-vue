@@ -1,3 +1,12 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-04-02 15:38:11
+ * @LastEditTime: 2021-04-07 10:17:17
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \supermall\src\views\detail\childComps\DetailNavBar.vue
+-->
+
 <template>
   <div>
     <nav-bar>
@@ -5,40 +14,38 @@
         <img src="~assets/img/common/back.svg" alt="">
       </div>
       <div slot="center" class="title">
-        <div v-for="(item, index) in titles"
-             :key="index"
-             class="title-item"
-             :class="{active: index === currentIndex}"
-             @click="titleClick(index)">
-          {{item}}
-        </div>
+        <div v-for="(item,index) in titles" 
+        class="title-item" :key="item"
+        :class="{active:index===currentIndex}"
+        @click="titleClick(index)">{{item}}</div>
       </div>
     </nav-bar>
   </div>
 </template>
-
 <script>
   import NavBar from 'components/common/navbar/NavBar'
-
   export default {
-    name: "DetailNavBar",
-    components: {
+    name:"DetailNavBar",
+    components:{
       NavBar
     },
-    data() {
+    data(){
       return {
-        titles: ['商品', '参数', '评论', '推荐'],
-        currentIndex: 0
+        titles:['商品','参数','评论','推荐'],
+        currentIndex:0
       }
     },
     methods: {
-      titleClick(index) {
-        this.currentIndex = index
+      titleClick(index){
+        this.currentIndex=index;
+        this.$emit('titleClick',index)
       },
-      backClick() {
-        this.$router.back()
+      backClick(){
+        // this.$router.go(-1);
+        this.$router.back();
       }
-    }
+    },
+ 
   }
 </script>
 
@@ -47,15 +54,12 @@
     display: flex;
     font-size: 13px;
   }
-
   .title-item {
     flex: 1;
   }
-
   .active {
-    color: var(--color-high-text)
+    color:var(--color-high-text);
   }
-
   .back img {
     margin-top: 12px;
   }

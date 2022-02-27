@@ -1,25 +1,24 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-30 09:20:25
+ * @LastEditTime: 2021-03-30 15:47:33
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \supermall\src\network\home.js
+ */
 import {request} from "./request";
-
 export function getHomeMultidata() {
   return request({
-    url: '/home/multidata'
+    url:'/home/multidata'
   })
 }
 
-export function getHomeGoods(type, page){
+export function getHomeGoods(type,page) {
   return request({
-    url: '/home/data',
+    url:'/home/data',
     params: {
-      type, page
+      type,
+      page
     }
   })
 }
-// 函数调用 -> 压入函数栈(保存函数调用过程中所有变量)
-// 函数调用结束 -> 弹出函数栈(释放函数所有的变量)
-// function test() {
-//   const names = ['why', 'aaa']
-// }
-//
-// test()
-//
-// test()

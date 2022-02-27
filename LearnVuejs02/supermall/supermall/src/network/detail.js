@@ -1,11 +1,24 @@
-import {request} from "./request";
-
-export function getDetail(iid) {
+/*
+ * @Author: your name
+ * @Date: 2021-04-02 17:04:02
+ * @LastEditTime: 2021-04-06 15:20:59
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \supermall\src\network\detail.js
+ */
+import {request} from './request'
+export function getDetail(iid){
   return request({
-    url: '/detail',
-    params: {
+    url:'/detail',
+    params:{
       iid
     }
+  })
+}
+
+export function getRecommend(){
+  return request({
+    url:'/recommend'
   })
 }
 
@@ -22,7 +35,6 @@ export class Goods {
   }
 }
 
-
 export class Shop {
   constructor(shopInfo) {
     this.logo = shopInfo.shopLogo;
@@ -34,7 +46,6 @@ export class Shop {
   }
 }
 
-
 export class GoodsParam {
   constructor(info, rule) {
     // 注: images可能没有值(某些商品有值, 某些没有值)
@@ -43,8 +54,4 @@ export class GoodsParam {
     this.sizes = rule.tables;
   }
 }
-
-
-
-
 
